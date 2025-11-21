@@ -81,10 +81,15 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
+    // Explicitly use core 1.16.0 for compatibility with AGP 8.7.3 + compileSdk 35
+    implementation("androidx.core:core:1.16.0")
+    implementation("androidx.core:core-ktx:1.16.0")
+
+    // Keep other library aliases from the version catalog
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
